@@ -27,9 +27,12 @@ Data Stack size         : 256
 #include <mega162.h>
 
 // Declare your global variables here
-
+int i;
 // Standard Input/Output functions
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <delay.h>
 
 void main(void)
 {
@@ -86,9 +89,23 @@ UCSR0C=(0<<UMSEL0) | (0<<UPM01) | (0<<UPM00) | (0<<USBS0) | (1<<UCSZ01) | (1<<UC
 UBRR0H=0x00;
 UBRR0L=0x4D;
 
+i=0;      
 while (1)
       {
-      // Place your code here
-
+      // Place your code here 
+          
+	  //if Button on PINB 0 not pressed, stay in while
+      while(!PINB.0 == 0){
+        i++;              //Increment (Count Up)
+        printf("%d\n",i); //Send to serial
+        delay_ms(100);    //delay count
+      }
+	  
+	  //if Button on PINB 0 pressed, out in while
+      i--;              //Decrement (Count Down)
+      printf("%d\n",i); //Send to serial
+      delay_ms(100);    //delay count
+       
       }
 }
+

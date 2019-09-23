@@ -92,20 +92,10 @@ UBRR0L=0x4D;
 i=0;      
 while (1)
       {
-      // Place your code here 
-          
-	  //if Button on PINB 0 not pressed, stay in while
-      while(!PINB.0 == 0){
-        i++;              //Increment (Count Up)
-        printf("%d\n",i); //Send to serial
-        delay_ms(100);    //delay count
-      }
-	  
-	  //if Button on PINB 0 pressed, out in while
-      i--;              //Decrement (Count Down)
+      // Place your code here     
+      i++;              //Increment (Count Up)
       printf("%d\n",i); //Send to serial
-      delay_ms(100);    //delay count
-       
+      delay_ms(100);    //delay count       
       }
 }
 
